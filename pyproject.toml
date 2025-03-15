@@ -21,6 +21,10 @@ black = "^25.1.0"
 isort = "^6.0.0"
 mypy = "^1.15.0"
 
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+
 [tool.black]
 # Максимальная длина строки
 line-length = 119
