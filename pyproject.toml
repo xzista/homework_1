@@ -24,6 +24,7 @@ mypy = "^1.15.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.5"
+pytest-cov = "^6.0.0"
 
 [tool.black]
 # Максимальная длина строки
