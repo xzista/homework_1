@@ -3,8 +3,10 @@ def filter_by_state(list_of_dict: list[dict], key_state: str = "EXECUTED") -> li
     а возвращает новый, отфильтрованный по критерию список словарей"""
     filter_list = []
     for dictionary in list_of_dict:
-        if dictionary["state"] == key_state:
+        if dictionary.get("state") == key_state:
             filter_list.append(dictionary)
+    if not filter_list:
+        raise KeyError("В списке словарей ключей с именем state не обнаружено")
     return filter_list
 
 
