@@ -1,4 +1,6 @@
 def filter_by_currency(transaction: list[dict], currency: str):
+    """Функция, которая принимает на вход список словарей, представляющих транзакции,
+    и возвращает итератор поочередно выдающий транзакции, где валюта операции соответствует заданной"""
     if not transaction:
         raise Exception("Передан пустой список")
     result = (value for value in transaction if value["operationAmount"]["currency"]["code"] == currency)
@@ -7,6 +9,8 @@ def filter_by_currency(transaction: list[dict], currency: str):
 
 
 def transaction_descriptions(transaction: list[dict]):
+    """Генератор, который принимает список словарей с транзакциями,
+     и возвращает описание каждой операции по очереди"""
     if not transaction:
         raise Exception("Передан пустой список")
     result = (value["description"] for value in transaction if value.get("description"))
@@ -15,6 +19,8 @@ def transaction_descriptions(transaction: list[dict]):
 
 
 def card_number_generator(start: int | str, stop: int | str):
+    """Генератор, который генерирует номера карт в заданном диапазоне,
+    и выдает номера банковских карт в нужном формате"""
     i = start
     while i <= stop:
         num16 = str(start).zfill(16)
