@@ -22,8 +22,8 @@ def mask_account_card(card: str) -> str:
 def get_date(date: str) -> str:
     """Функция, которая принимает на вход строку с датой в неправильном формате,
     а возвращает дату в нужном формате"""
-    if len(date) < 10 or date[4] != '-' or date[7] != '-':
-        raise Exception('Некорректный формат данных')
+    if len(date) < 10 or date[4] != "-" or date[7] != "-":
+        raise Exception("Некорректный формат данных")
     date_list = date[:10].split("-")
     date_list.reverse()
     return ".".join(date_list)
