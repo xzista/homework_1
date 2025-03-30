@@ -53,6 +53,11 @@ for description in transaction_descriptions(transactions):
 for card in card_number_generator(4000123456789010, 4000123456789015):
     print(card)
 ```
+## Модуль Decorators
+
+Модуль `Decorators` предоставляет декораторы для изменения работы функций. Он включает в себя следующие декораторы:
+
+- `@log()` Декоратор логирования работы функций, с возможностью записи логов в файл.
 
 ## Документация:
 
