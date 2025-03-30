@@ -4,18 +4,22 @@ from functools import wraps
 
 
 def log(filename: str = None):
+    """Декоратор, который автоматически логирует начало и конец выполнения функции,
+     а также ее результаты или возникшие ошибки"""
     def wrapper(func):
         @wraps(func)
         def inner(*args, **kwargs):
-            current_dir = os.path.dirname(__file__)  # Папка, где лежит модуль
-            log_path = os.path.join(current_dir, "../logs/" + filename)  # Абсолютный путь к файлу
+            current_dir = os.path.dirname(__file__)
+            log_path = os.path.join(current_dir, "../logs/" + filename)
             time_start = datetime.now()
-            text_log_s = f'[{time_start.strftime("%Y-%m-%d %H:%M:%S")}] Function {func.__name__} started with inputs: {(*args,)}\n'
+            text_log_s = (f'[{time_start.strftime("%Y-%m-%d %H:%M:%S")}] '
+                          f'Function {func.__name__} started with inputs: {(*args,)}\n')
             try:
                 result = func(*args, **kwargs)
             except ZeroDivisionError as e:
                 time_error = datetime.now()
-                text_log_e = f'[{time_error.strftime("%Y-%m-%d %H:%M:%S")}] {func.__name__} error: {e}. Inputs: {(*args,)}\n'
+                text_log_e = (f'[{time_error.strftime("%Y-%m-%d %H:%M:%S")}] '
+                              f'{func.__name__} error: {e}. Inputs: {(*args,)}\n')
                 if not filename:
                     print(text_log_s, text_log_e, sep='')
                     raise e
@@ -26,7 +30,8 @@ def log(filename: str = None):
                         log_file.write(text_log_e)
                     raise e
             time_finish = datetime.now()
-            text_log_f = f'[{time_finish.strftime("%Y-%m-%d %H:%M:%S")}] Function {func.__name__} finished successfully with result: {result}\n'
+            text_log_f = (f'[{time_finish.strftime("%Y-%m-%d %H:%M:%S")}] '
+                          f'Function {func.__name__} finished successfully with result: {result}\n')
             if not filename:
                 print(text_log_s, text_log_f, sep='')
             else:
