@@ -10,7 +10,7 @@ def filter_by_currency(transaction: list[dict], currency: str):
 
 def transaction_descriptions(transaction: list[dict]):
     """Генератор, который принимает список словарей с транзакциями,
-     и возвращает описание каждой операции по очереди"""
+    и возвращает описание каждой операции по очереди"""
     if not transaction:
         raise Exception("Передан пустой список")
     result = (value["description"] for value in transaction if value.get("description"))
