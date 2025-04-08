@@ -10,4 +10,5 @@ def convert_json_to_list_of_dict(path_json: str) -> list:
             result = json.load(f)
     except FileNotFoundError:
         print('Ошибка: файл не найден!')
+        raise FileNotFoundError
     return result
