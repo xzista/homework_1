@@ -62,10 +62,10 @@
         <p class="text">
             <a id="prevFileLink" class="nav" href="z_145eef247bfb46b6___init___py.html">&#xab; prev</a> &nbsp; &nbsp;
             <a id="indexLink" class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
-            <a id="nextFileLink" class="nav" href="z_145eef247bfb46b6_generators_py.html">&#xbb; next</a>
+            <a id="nextFileLink" class="nav" href="z_145eef247bfb46b6_external_api_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.6.12">coverage.py v7.6.12</a>,
-            created at 2025-03-30 15:30 +0300
+            created at 2025-04-08 18:10 +0300
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -97,7 +97,7 @@
     <p class="run"><span class="n"><a id="t15" href="#t15">15</a></span><span class="t">            <span class="nam">time_start</span> <span class="op">=</span> <span class="nam">datetime</span><span class="op">.</span><span class="nam">now</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t16" href="#t16">16</a></span><span class="t">            <span class="nam">text_log_s</span> <span class="op">=</span> <span class="op">(</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t17" href="#t17">17</a></span><span class="t">                <span class="fst">f'</span><span class="fst">[</span><span class="op">{</span><span class="nam">time_start</span><span class="op">.</span><span class="nam">strftime</span><span class="op">(</span><span class="str">"%Y-%m-%d %H:%M:%S"</span><span class="op">)</span><span class="op">}</span><span class="fst">] </span><span class="fst">'</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t18" href="#t18">18</a></span><span class="t">                <span class="fst">f"</span><span class="fst">Function </span><span class="op">{</span><span class="nam">func</span><span class="op">.</span><span class="nam">__name__</span><span class="op">}</span><span class="fst"> started with inputs: </span><span class="op">{</span><span class="op">(</span><span class="op">*</span><span class="nam">args</span><span class="op">,</span><span class="op">)</span><span class="op">,</span> <span class="op">{</span><span class="op">**</span><span class="nam">kwargs</span><span class="op">,</span><span class="op">}</span><span class="op">}</span><span class="fst">\n</span><span class="fst">"</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t18" href="#t18">18</a></span><span class="t">                <span class="fst">f"</span><span class="fst">Function </span><span class="op">{</span><span class="nam">func</span><span class="op">.</span><span class="nam">__name__</span><span class="op">}</span><span class="fst"> started with inputs: </span><span class="op">{</span><span class="op">(</span><span class="op">*</span><span class="nam">args</span><span class="op">,</span> <span class="op">)</span><span class="op">,</span> <span class="op">{</span><span class="op">**</span><span class="nam">kwargs</span><span class="op">,</span> <span class="op">}</span><span class="op">}</span><span class="fst">\n</span><span class="fst">"</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t19" href="#t19">19</a></span><span class="t">            <span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t20" href="#t20">20</a></span><span class="t">            <span class="key">try</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t21" href="#t21">21</a></span><span class="t">                <span class="nam">result</span> <span class="op">=</span> <span class="nam">func</span><span class="op">(</span><span class="op">*</span><span class="nam">args</span><span class="op">,</span> <span class="op">**</span><span class="nam">kwargs</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
@@ -105,7 +105,7 @@
     <p class="run"><span class="n"><a id="t23" href="#t23">23</a></span><span class="t">                <span class="nam">time_error</span> <span class="op">=</span> <span class="nam">datetime</span><span class="op">.</span><span class="nam">now</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t24" href="#t24">24</a></span><span class="t">                <span class="nam">text_log_e</span> <span class="op">=</span> <span class="op">(</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t25" href="#t25">25</a></span><span class="t">                    <span class="fst">f'</span><span class="fst">[</span><span class="op">{</span><span class="nam">time_error</span><span class="op">.</span><span class="nam">strftime</span><span class="op">(</span><span class="str">"%Y-%m-%d %H:%M:%S"</span><span class="op">)</span><span class="op">}</span><span class="fst">] </span><span class="fst">'</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t26" href="#t26">26</a></span><span class="t">                    <span class="fst">f"</span><span class="op">{</span><span class="nam">func</span><span class="op">.</span><span class="nam">__name__</span><span class="op">}</span><span class="fst"> error: </span><span class="op">{</span><span class="nam">e</span><span class="op">}</span><span class="fst">. Inputs: </span><span class="op">{</span><span class="op">(</span><span class="op">*</span><span class="nam">args</span><span class="op">,</span><span class="op">)</span><span class="op">,</span> <span class="op">{</span><span class="op">**</span><span class="nam">kwargs</span><span class="op">,</span><span class="op">}</span><span class="op">}</span><span class="fst">\n</span><span class="fst">"</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t26" href="#t26">26</a></span><span class="t">                    <span class="fst">f"</span><span class="op">{</span><span class="nam">func</span><span class="op">.</span><span class="nam">__name__</span><span class="op">}</span><span class="fst"> error: </span><span class="op">{</span><span class="nam">e</span><span class="op">}</span><span class="fst">. Inputs: </span><span class="op">{</span><span class="op">(</span><span class="op">*</span><span class="nam">args</span><span class="op">,</span> <span class="op">)</span><span class="op">,</span> <span class="op">{</span><span class="op">**</span><span class="nam">kwargs</span><span class="op">,</span> <span class="op">}</span><span class="op">}</span><span class="fst">\n</span><span class="fst">"</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t27" href="#t27">27</a></span><span class="t">                <span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t28" href="#t28">28</a></span><span class="t">                <span class="key">if</span> <span class="key">not</span> <span class="nam">filename</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t29" href="#t29">29</a></span><span class="t">                    <span class="nam">print</span><span class="op">(</span><span class="nam">text_log_s</span><span class="op">,</span> <span class="nam">text_log_e</span><span class="op">,</span> <span class="nam">sep</span><span class="op">=</span><span class="str">""</span><span class="op">,</span> <span class="nam">end</span><span class="op">=</span><span class="str">""</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
@@ -139,10 +139,10 @@
         <p>
             <a class="nav" href="z_145eef247bfb46b6___init___py.html">&#xab; prev</a> &nbsp; &nbsp;
             <a class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
-            <a class="nav" href="z_145eef247bfb46b6_generators_py.html">&#xbb; next</a>
+            <a class="nav" href="z_145eef247bfb46b6_external_api_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.6.12">coverage.py v7.6.12</a>,
-            created at 2025-03-30 15:30 +0300
+            created at 2025-04-08 18:10 +0300
         </p>
     </div>
 </footer>
