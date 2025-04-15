@@ -1,3 +1,4 @@
+import csv
 import json
 import logging
 
@@ -16,6 +17,39 @@ def convert_json_to_list_of_dict(path_json: str) -> list:
     try:
         with open(path_json, "r", encoding="utf-8") as f:
             result = json.load(f)
+    except FileNotFoundError as e:
+        logger.error(f"ОШИБКА: {e}")
+        print("Ошибка: файл не найден!")
+        raise e
+    logger.info("Функция отработала успешно")
+    return result
+
+
+def convert_csv_to_list_of_dict(path_csv: str) -> list:
+    """Функция, которая принимает на вход путь до CSV-файла и
+    возвращает список словарей с данными о финансовых транзакциях"""
+    logger.info(f"Запуск функции: {convert_csv_to_list_of_dict.__name__} с путем к файлу: {path_csv}")
+    result = []
+    try:
+        with open(path_csv, "r", encoding="utf-8") as f:
+            reader = csv.DictReader(f, delimiter=';')
+            for row in reader:
+                row_dict = {
+                            "id": row["id"],
+                            "state": row["state"],
+                            "date": row["date"],
+                            "operationAmount": {
+                              "amount": row["amount"],
+                              "currency": {
+                                "name": row["currency_name"],
+                                "code": row["currency_code"]
+                              }
+                            },
+                            "description": row["description"],
+                            "from": row["from"],
+                            "to": row["to"]
+                }
+                result.append(row_dict)
     except FileNotFoundError as e:
         logger.error(f"ОШИБКА: {e}")
         print("Ошибка: файл не найден!")
