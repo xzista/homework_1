@@ -24,14 +24,14 @@ def sort_by_date(list_for_sort: list[dict], reverse_sort: bool = True) -> list[d
 def filter_by_description(list_of_dict: list, search: str) -> list:
     """Функция, которая принимает список словарей и строку поиска,
     а возвращает список словарей, с искомой строкой поиска в описании"""
-    result =[]
+    result = []
     for dictionary in list_of_dict:
-        if re.search(f'{search}', dictionary.get("description")):
+        if re.search(f"{search}", dictionary.get("description")):
             result.append(dictionary)
     return result
 
 
-def count_operations_by_category(list_of_dict: list, list_of_categories: list):# -> dict:
+def count_operations_by_category(list_of_dict: list, list_of_categories: list):  # -> dict:
     """Функция, которая принимает список словарей и строку поиска,
     а возвращает словарь, где ключ — это категория, а количество операций его значение."""
     result_dict = {}
