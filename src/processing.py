@@ -1,4 +1,5 @@
 import re
+from collections import Counter
 
 
 def filter_by_state(list_of_dict: list[dict], key_state: str = "EXECUTED") -> list[dict]:
@@ -25,6 +26,17 @@ def filter_by_description(list_of_dict: list, search: str) -> list:
     а возвращает список словарей, с искомой строкой поиска в описании"""
     result =[]
     for dictionary in list_of_dict:
-        if re.search(f'{search}', dictionary["description"]):
+        if re.search(f'{search}', dictionary.get("description")):
             result.append(dictionary)
     return result
+
+
+def count_operations_by_category(list_of_dict: list, list_of_categories: list):# -> dict:
+    """Функция, которая принимает список словарей и строку поиска,
+    а возвращает словарь, где ключ — это категория, а количество операций его значение."""
+    result_dict = {}
+    categories_by_list = [dictionary.get("description") for dictionary in list_of_dict]
+    category_count = Counter(categories_by_list)
+    for category in list_of_categories:
+        result_dict[category] = category_count[category]
+    return result_dict
