@@ -45,12 +45,27 @@ def convert_xlsx_to_list_of_dict(path_xlsx: str) -> list:
     """Функция, которая принимает на вход путь до xlsx-файла и
     возвращает список словарей с данными о финансовых транзакциях"""
     logger.info(f"Запуск функции: {convert_xlsx_to_list_of_dict.__name__} с путем к файлу: {path_xlsx}")
+    result = []
     try:
         data_excel = pd.read_excel(path_xlsx)
         list_excel = data_excel.to_dict(orient="records")
+        for dictionary in list_excel:
+            row_dict = {
+                "id": dictionary["id"],
+                "state": dictionary["state"],
+                "date": dictionary["date"],
+                "operationAmount": {
+                    "amount": dictionary["amount"],
+                    "currency": {"name": dictionary["currency_name"], "code": dictionary["currency_code"]},
+                },
+                "description": dictionary["description"],
+                "from": str(dictionary.get("from")),
+                "to": dictionary["to"],
+            }
+            result.append(row_dict)
     except FileNotFoundError as e:
         logger.error(f"ОШИБКА: {e}")
         print("Ошибка: файл не найден!")
         raise e
     logger.info("Функция отработала успешно")
-    return list_excel
+    return result
